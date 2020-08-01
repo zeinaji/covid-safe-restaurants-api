@@ -15,6 +15,6 @@ const restaurantSchema = new mongoose.Schema({
   phoneNumber: Number,
 });
 
-const Restaurant = mongoose.model('Album', albumSchema);
+const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 module.exports = Restaurant;
