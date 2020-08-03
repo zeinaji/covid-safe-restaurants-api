@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const app = require('./src/app');
 
 mongoose
-  .connect('mongodb://database:27017/covid19-restaurants', {
+  .connect('mongodb://localhost:27017/covid19-restaurants', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

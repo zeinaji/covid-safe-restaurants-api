@@ -7,11 +7,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    environment:
-      - PORT=8080
-      - DATABASE_CONN=mongodb://database:27017/covid19-restaurants
     depends_on:
       - database
+    environment:
+      - PORT=8080
+      - DATABASE_CONN=mongodb://localhost:27017/covid19-restaurants
 
   database:
     image: mongo

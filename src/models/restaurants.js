@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const restaurantSchema = new mongoose.Schema({
   name: String,
-  Type: String,
+  type: String,
   onDeliveroo: Boolean,
   onJustEat: Boolean,
   onUberEats: Boolean,
   isOpen: Boolean,
-  OpeningTimes: String,
+  openingTimes: String,
   eatOutToHelpOut: Boolean,
   outsideSeating: Boolean,
   website: String,

@@ -9,4 +9,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "nodemon", "-r", "dotenv/config", "index.js" ]
+CMD [ "node", "index.js" ]
