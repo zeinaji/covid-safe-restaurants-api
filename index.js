@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 const app = require('./src/app');
 
 mongoose
-  .connect(process.env.DATABASE_CONN, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://database:27017/covid19-restaurants', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
-    app.listen(3000, () => {
+    app.listen(8080, () => {
       // eslint-disable-next-line no-console
-      console.log('App listening on port 3000');
+      console.log('App listening on port 8080');
     });
   })
   .catch((err) => {
