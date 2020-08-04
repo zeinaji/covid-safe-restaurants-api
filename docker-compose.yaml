@@ -2,16 +2,16 @@ version: '3'
 
 services:
   express-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: express
+    restart: always
+    build: .
     ports:
-      - 8080:8080
-    depends_on:
-      - database
-    environment:
-      - PORT=8080
-      - DATABASE_CONN=mongodb://localhost:27017/covid19-restaurants
+      - '80:3000'
+    links:
+      - mongo
 
-  database:
+  mongo:
+    container_name: mongo
     image: mongo
+    ports:
+      - '27017:27017'

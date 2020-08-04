@@ -15,22 +15,23 @@ exports.create = (req, res) => {
     instagram,
     phoneNumber,
   } = req.body;
-  const artist = new Artist({
+
+  const restaurant = new Restaurant({
     name: name,
     type: type,
     onDeliveroo: onDeliveroo,
     onJustEat: onJustEat,
     onUberEats: onUberEats,
     isOpen: isOpen,
-    openingTimes: ,
-    eatOutToHelpOut: Boolean,
-    outsideSeating: Boolean,
-    website: String,
-    instagram: String,
-    phoneNumber: Number,
+    openingTimes: openingTimes,
+    eatOutToHelpOut: eatOutToHelpOut,
+    outsideSeating: outsideSeating,
+    website: website,
+    instagram: instagram,
+    phoneNumber: phoneNumber,
   });
 
-  artist.save().then(() => {
-    res.status(201).json(artist);
+  restaurant.save().then(() => {
+    res.status(201).json(restaurant);
   });
 };
