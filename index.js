@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const app = require('./src/app');
 
-mongoose.connect('mongodb://mongo:27017/covid19-restaurants', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect('mongodb://mongo:27017/covid19-restaurants', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .catch((err) => {
+    // eslint-disable-next-line no-console
+    console.log(err);
+  });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
