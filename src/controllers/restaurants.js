@@ -4,6 +4,7 @@ exports.create = (req, res) => {
   const {
     name,
     type,
+    description,
     onDeliveroo,
     onJustEat,
     onUberEats,
@@ -19,13 +20,14 @@ exports.create = (req, res) => {
   const restaurant = new Restaurant({
     name: name,
     type: type,
+    description: description,
     onDeliveroo: onDeliveroo,
     onJustEat: onJustEat,
     onUberEats: onUberEats,
     isOpen: isOpen,
     openingTimes: openingTimes,
     eatOutToHelpOut: eatOutToHelpOut,
-    outsideSeating: outsideSeating,
+    outdoorSeating: outsideSeating,
     website: website,
     instagram: instagram,
     phoneNumber: phoneNumber,

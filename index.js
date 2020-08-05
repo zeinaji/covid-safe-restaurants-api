@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = require('./src/app');
 
-mongoose
-  .connect('mongodb://mongo:27017/covid19-restaurants', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+require('dotenv').config();
+
+app.use(cors());
+mongoose.connect(`${process.env.DATABASE_CONN}`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+/*.then(() => console.log('MongoDB is connected'))
   .catch((err) => {
     // eslint-disable-next-line no-console
     console.log(err);
-  });
+  });*/
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
