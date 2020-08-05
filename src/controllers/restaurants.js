@@ -61,7 +61,7 @@ exports.list = (req, res) => {
 
   query
     .exec()
-    .then(restaurants => {
+    .then((restaurants) => {
       res.status(200).json(restaurants);
     })
     .catch(error => {
