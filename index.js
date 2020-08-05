@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-const cors = require('cors');
 const app = require('./src/app');
 
 require('dotenv').config();
 
-app.use(cors());
 mongoose.connect(`${process.env.DATABASE_CONN}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 /*.then(() => console.log('MongoDB is connected'))
   .catch((err) => {
