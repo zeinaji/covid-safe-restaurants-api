@@ -15,6 +15,7 @@ exports.create = (req, res) => {
     website,
     instagram,
     phoneNumber,
+    picture,
   } = req.body;
 
   const restaurant = new Restaurant({
@@ -31,6 +32,7 @@ exports.create = (req, res) => {
     website: website,
     instagram: instagram,
     phoneNumber: phoneNumber,
+    picture: picture,
   });
 
   restaurant.save().then(() => {
@@ -61,10 +63,10 @@ exports.list = (req, res) => {
 
   query
     .exec()
-    .then(restaurants => {
+    .then((restaurants) => {
       res.status(200).json(restaurants);
     })
-    .catch(error => {
+    .catch((error) => {
       res.sendStatus(500);
     });
 };

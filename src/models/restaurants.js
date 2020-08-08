@@ -14,6 +14,7 @@ const restaurantSchema = new mongoose.Schema({
   website: String,
   instagram: String,
   phoneNumber: String,
+  picture: String,
 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
