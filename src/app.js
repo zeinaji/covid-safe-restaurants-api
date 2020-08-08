@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const restify = require('express-restify-mongoose');
 const restaurantModel = require('./models/restaurants');
 const favouritesModel = require('./models/favourites');
@@ -10,7 +9,6 @@ const router = express.Router();
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
 app.use(router);
 
 //endpoint === /api/v1/restaurant for GET, POST, PUT and DELETE
