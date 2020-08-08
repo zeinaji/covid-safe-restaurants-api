@@ -1,0 +1,247 @@
+swagger: '2.0'
+info:
+  description: API to access database of COVID safe restaurants
+  version: '0.1'
+  title: covid-safe-restaurants
+host: 'localhost:3000'
+basePath: /api/v1
+tags:
+  - name: Restaurants
+    description: API endpoints for managing PropertyListings
+  - name: Favourites
+    description: API endpoints for managing Favourites
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json  
+  
+paths:
+  /api/v1/favourite/:
+    get:
+      tags: 
+        - Favourites
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite'
+            
+  /api/v1/favourite/:id:
+    get:
+      tags: 
+        - Favourites
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite' 
+    post:
+      tags: 
+        - Favourites    
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite' 
+    put:
+      tags: 
+        - Favourites    
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite' 
+    delete:
+      tags: 
+        - Favourites    
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite'
+            
+  /api/v1/restaurant/:
+    get:
+      tags: 
+        - Restaurants     
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector  
+    post:
+      tags: 
+        - Restaurants     
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Restaurant' 
+          x-examples:
+            application/json: |-
+              {
+                "name": "Test Restaurant Truthy",
+                "type": "Test",
+                "description": "This is a test with all Truthy values",
+                "onDeliveroo": "true",
+                "onJustEat": "true",
+                "onUberEats": "true",
+                "isOpen": "true",
+                "openingTimes": "9:00am - 10:00pm, Mon-Sun",
+                "eatOutToHelpOut": "50% off meal, up to £10 per person",
+                "outsideSeating": "true",
+                "website": "https://www.example.com",
+                "instagram": "",
+                "phoneNumber": "0123456789",
+                "picture": "https://imgfile"
+              }
+      responses:
+        '201':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Restaurant'  
+            
+  /api/v1/restaurant/:id:
+    get:
+      tags: 
+        - Restaurants    
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Restaurant' 
+    put:
+      tags: 
+        - Restaurants     
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Restaurant' 
+          x-examples:
+            application/json: |-
+              {
+                "name": "Test Restaurant Truthy",
+                "type": "Test",
+                "description": "This is a test with all Truthy values",
+                "onDeliveroo": "true",
+                "onJustEat": "true",
+                "onUberEats": "true",
+                "isOpen": "false",
+                "openingTimes": "9:00am - 10:00pm, Mon-Sun",
+                "eatOutToHelpOut": "50% off meal, up to £10 per person",
+                "outsideSeating": "true",
+                "website": "https://www.example.com",
+                "instagram": "",
+                "phoneNumber": "0123456789",
+                "picture": "https://imgfileChanged"
+              }
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Restaurant' 
+    delete:
+      tags: 
+        - Restaurants     
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '204':
+          description: Definition generated from Swagger Inspector
+          
+  /api/v1/restaurant/count:
+    get:
+      tags: 
+        - Restaurants     
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Count' 
+          
+definitions:
+  Restaurant:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      description:
+        type: string
+      onDeliveroo:
+        type: string
+      onJustEat:
+        type: string
+      onUberEats:
+        type: string
+      isOpen:
+        type: string
+      openingTimes:
+        type: string
+      eatOutToHelpOut:
+        type: string
+      outsideSeating:
+        type: string
+      website:
+        type: string
+      instagram:
+        type: string
+      phoneNumber:
+        type: string
+      picture:
+        type: string
+  Count:
+    properties:
+      count:
+        type: integer
+        format: int32
+  Favourite:
+    required:
+      - _id
+      - restaurant
+      - fbUserId
+    properties:
+      _id:
+        type: string
+        uniqueItems: true
+      propertyListing:
+        type: string
+        description: Property ID
+      fbUserId:
+        type: string       
