@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
-const cors = require('cors');
 const app = require('./src/app');
 
 require('dotenv').config();
 
-app.use(cors());
 mongoose.connect(`${process.env.DATABASE_CONN}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 /*.then(() => console.log('MongoDB is connected'))
   .catch((err) => {
@@ -15,7 +14,7 @@ mongoose.connect(`${process.env.DATABASE_CONN}`, {
     console.log(err);
   });*/
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
