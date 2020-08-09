@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     isOpen,
     openingTimes,
     eatOutToHelpOut,
-    outsideSeating,
+    outdoorSeating,
     website,
     instagram,
     phoneNumber,
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
     isOpen: isOpen,
     openingTimes: openingTimes,
     eatOutToHelpOut: eatOutToHelpOut,
-    outdoorSeating: outsideSeating,
+    outdoorSeating: outdoorSeating,
     website: website,
     instagram: instagram,
     phoneNumber: phoneNumber,
@@ -44,28 +44,24 @@ exports.create = (req, res) => {
   });
 };
 
-exports.list = (req, res) => {
+exports.listAll = (req, res) => {
+  const queryObj = {};
+
   const query = Restaurant.find();
 
-  if (req.query.name) {
-    query.where('name', new RegExp(req.query.name, 'i'));
-  } else if (req.query.type) {
-    query.where('type').equals(req.query.type);
-  } else if (req.query.onDeliveroo) {
-    query.where('onDeliveroo').equals(req.query.onDeliveroo);
-  } else if (req.query.onJustEat) {
-    query.where('onJustEat').equals(req.query.onJustEat);
-  } else if (req.query.onUberEats) {
-    query.where('onUberEats').equals(req.query.onUberEats);
-  } else if (req.query.isOpen) {
-    query.where('isOpen').equals(req.query.isOpen);
-  } else if (req.query.eatOutToHelpOut) {
-    query.where('eatOutToHelpOut').equals(req.query.eatOutToHelpOut);
-  } else if (req.query.outsideSeating) {
-    query.where('outsideSeating').equals(req.query.outsideSeating);
-  }
+  if (req.query.name) { queryObj['name'] = new RegExp(req.query.name, 'i'); } 
+  if (req.query.type) { queryObj['type'] = req.query.type; } 
+  if (req.query.onDeliveroo) { queryObj['onDeliveroo'] = req.query.onDeliveroo; } 
+  if (req.query.onJustEat) { queryObj['onJustEat'] = req.query.onJustEat; } 
+  if (req.query.onUberEats) { queryObj['onUberEats'] = req.query.onUberEats; } 
+  if (req.query.isOpen) { queryObj['isOpen'] = req.query.isOpen; }
+  if (req.query.eatOutToHelpOut) { queryObj['eatOutToHelpOut'] = req.query.eatOutToHelpOut; }
+  if (req.query.outdoorSeating) { queryObj['outdoorSeating'] = req.query.outdoorSeating; }
+  if (req.query.city) { queryObj['city'] = req.query.city; }
+  if (req.query.postcode) { queryObj['city'] = req.query.postcode; }
 
   query
+    .where(queryObj)
     .exec()
     .then((restaurants) => {
       res.status(200).json(restaurants);
