@@ -16,6 +16,8 @@ exports.create = (req, res) => {
     instagram,
     phoneNumber,
     picture,
+    address,
+    postcode,
   } = req.body;
 
   const restaurant = new Restaurant({
@@ -33,6 +35,8 @@ exports.create = (req, res) => {
     instagram: instagram,
     phoneNumber: phoneNumber,
     picture: picture,
+    address: address,
+    postcode: postcode,
   });
 
   restaurant.save().then(() => {

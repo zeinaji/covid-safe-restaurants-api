@@ -293,7 +293,16 @@
              },
              "picture": {
                 "type": "string"
-             }
+             },
+             "streetAddress": {
+               "type": "string"
+            },
+            "city": {
+               "type": "string"
+            },
+            "postcode": {
+               "type": "string"
+            }
           }
        },
        "Count": {
