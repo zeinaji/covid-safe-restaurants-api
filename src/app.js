@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const restify = require('express-restify-mongoose');
 const restaurantModel = require('./models/restaurants');
 const favouritesModel = require('./models/favourites');
+const restaurantRoutes = require('./routes/restaurants');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -22,5 +23,7 @@ restify.serve(router, restaurantModel);
 restify.serve(router, favouritesModel);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use('/api/v2/restaurant', restaurantRoutes);
 
 module.exports = app;

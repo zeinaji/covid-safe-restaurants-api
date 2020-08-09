@@ -10,7 +10,7 @@ const restaurantSchema = new mongoose.Schema({
   isOpen: Boolean,
   openingTimes: String,
   eatOutToHelpOut: String,
-  outsideSeating: Boolean,
+  outdoorSeating: Boolean,
   website: String,
   instagram: String,
   phoneNumber: String,

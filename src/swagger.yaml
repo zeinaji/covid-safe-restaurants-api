@@ -263,7 +263,7 @@ definitions:
         type: string
       eatOutToHelpOut:
         type: string
-      outsideSeating:
+      outdoorSeating:
         type: string
       website:
         type: string
