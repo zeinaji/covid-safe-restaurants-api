@@ -98,6 +98,23 @@
                 }
              }
           },
+          "patch": {
+            "tags": [
+               "Favourites"
+            ],
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [],
+            "responses": {
+               "200": {
+                  "description": "Definition generated from Swagger Inspector",
+                  "schema": {
+                     "$ref": "#/definitions/Favourite"
+                  }
+               }
+            }
+         },          
           "delete": {
              "tags": [
                 "Favourites"
@@ -214,6 +231,38 @@
                 }
              }
           },
+          "patch": {
+            "tags": [
+               "Restaurants"
+            ],
+            "consumes": [
+               "application/json"
+            ],
+            "produces": [
+               "application/json"
+            ],
+            "parameters": [
+               {
+                  "in": "body",
+                  "name": "body",
+                  "required": false,
+                  "schema": {
+                     "$ref": "#/definitions/Restaurant"
+                  },
+                  "x-examples": {
+                     "application/json": "{\n  \"name\": \"Test Restaurant Truthy\",\n  \"type\": \"Test\",\n  \"description\": \"This is a test with all Truthy values\",\n  \"onDeliveroo\": \"true\",\n  \"onJustEat\": \"true\",\n  \"onUberEats\": \"true\",\n  \"isOpen\": \"false\",\n  \"openingTimes\": \"9:00am - 10:00pm, Mon-Sun\",\n  \"eatOutToHelpOut\": \"50% off meal, up to £10 per person\",\n  \"outsideSeating\": \"true\",\n  \"website\": \"https://www.example.com\",\n  \"instagram\": \"\",\n  \"phoneNumber\": \"0123456789\",\n  \"picture\": \"https://imgfileChanged\"\n}"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Definition generated from Swagger Inspector",
+                  "schema": {
+                     "$ref": "#/definitions/Restaurant"
+                  }
+               }
+            }
+         },          
           "delete": {
              "tags": [
                 "Restaurants"

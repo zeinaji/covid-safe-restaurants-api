@@ -64,7 +64,18 @@ paths:
         '200':
           description: Definition generated from Swagger Inspector
           schema:
-            $ref: '#/definitions/Favourite' 
+            $ref: '#/definitions/Favourite'
+    patch:
+      tags: 
+        - Favourites    
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Favourite'              
     delete:
       tags: 
         - Favourites    
@@ -172,6 +183,42 @@ paths:
           description: Definition generated from Swagger Inspector
           schema:
             $ref: '#/definitions/Restaurant' 
+    patch:
+      tags: 
+        - Restaurants     
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Restaurant' 
+          x-examples:
+            application/json: |-
+              {
+                "name": "Test Restaurant Truthy",
+                "type": "Test",
+                "description": "This is a test with all Truthy values",
+                "onDeliveroo": "true",
+                "onJustEat": "true",
+                "onUberEats": "true",
+                "isOpen": "false",
+                "openingTimes": "9:00am - 10:00pm, Mon-Sun",
+                "eatOutToHelpOut": "50% off meal, up to £10 per person",
+                "outsideSeating": "true",
+                "website": "https://www.example.com",
+                "instagram": "",
+                "phoneNumber": "0123456789",
+                "picture": "https://imgfileChanged"
+              }
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Restaurant'             
     delete:
       tags: 
         - Restaurants     
