@@ -300,57 +300,98 @@
     },
     "definitions": {
        "Restaurant": {
+          "required": [
+            "_id",
+            "name",
+            "type",
+            "description",
+            "onDeliveroo",
+            "onJustEat",
+            "onUberEats",
+            "isOpen",
+            "openingTimes",
+            "eatOutToHelpOut",
+            "outdoorSeating",
+            "website",
+            "instagram",
+            "phoneNumber",
+            "picture",
+            "streetAddress",
+            "city",
+            "postcode"
+          ],
           "properties": {
+             "_id": {
+                "type": "string",
+                "uniqueItems": true
+             },
              "name": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "type": {
-                "type": "string"
+                "type": "string",
+                "required": "true"                
              },
              "description": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "onDeliveroo": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "onJustEat": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "onUberEats": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "isOpen": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "openingTimes": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "eatOutToHelpOut": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "outdoorSeating": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "website": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "instagram": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "phoneNumber": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "picture": {
-                "type": "string"
+                "type": "string",
+                "required": "true"
              },
              "streetAddress": {
-               "type": "string"
+               "type": "string",
+               "required": "true"
             },
             "city": {
-               "type": "string"
+               "type": "string",
+               "required": "true"
             },
             "postcode": {
-               "type": "string"
+               "type": "string",
+               "required": "true"
             }
           }
        },
@@ -373,7 +414,7 @@
                 "type": "string",
                 "uniqueItems": true
              },
-             "propertyListing": {
+             "restaurant": {
                 "type": "string",
                 "description": "Property ID"
              },

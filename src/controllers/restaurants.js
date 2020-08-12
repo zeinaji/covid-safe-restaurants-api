@@ -58,7 +58,7 @@ exports.listAll = (req, res) => {
   if (req.query.eatOutToHelpOut) { queryObj['eatOutToHelpOut'] = req.query.eatOutToHelpOut; }
   if (req.query.outdoorSeating) { queryObj['outdoorSeating'] = req.query.outdoorSeating; }
   if (req.query.city) { queryObj['city'] = req.query.city; }
-  if (req.query.postcode) { queryObj['city'] = req.query.postcode; }
+  if (req.query.postcode) { queryObj['postcode'] = req.query.postcode; }
 
   query
     .where(queryObj)
